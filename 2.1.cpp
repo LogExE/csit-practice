@@ -9,6 +9,7 @@ int main()
 	{
 		return 0;
 	}
+	a = abs(a);
 	int s = 0, m = 1;
 	while (a) 
 	{
