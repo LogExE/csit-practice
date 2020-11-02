@@ -16,7 +16,7 @@ int main()
 	{
 		std::cout << "d = a";
 	}
-	else if (d > a + e) 
+	else if (d > a && d > a + e) 
 	{
 		std::cout << "d > a";
 	}
