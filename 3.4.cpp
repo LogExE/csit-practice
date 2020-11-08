@@ -1,6 +1,7 @@
+
 #include <iostream>
 
-void swapf(double &a, double &b) 
+void swapf(double& a, double& b)
 {
 	double t = a;
 	a = b;
@@ -17,30 +18,30 @@ int main()
 	double f12 = m1 * m2 / r12 / r12,
 		f23 = m2 * m3 / r23 / r23,
 		f13 = m1 * m3 / r13 / r13;
-	if (f12 <= f23) 
+	if (f12 <= f23)
 	{
-		if (f12 >= f13) 
+		if (f12 >= f13)
 		{
-			std::cout << "f13<f12<f23";
+			std::cout << "f13<=f12<=f23";
 		}
 		else if (f23 >= f13)
 		{
-			std::cout << "f12<f13<f23";
+			std::cout << "f12<f13<=f23";
 		}
-		else 
+		else
 		{
-			std::cout << "f12<f23<f13";
+			std::cout << "f12<=f23<f13";
 		}
 	}
-	else 
+	else
 	{
 		if (f23 >= f13)
 		{
-			std::cout << "f13<f23<f12";
+			std::cout << "f13<=f23<f12";
 		}
 		else if (f12 >= f13)
 		{
-			std::cout << "f12<f13<f12";
+			std::cout << "f12<f13<=f12";
 		}
 		else
 		{
