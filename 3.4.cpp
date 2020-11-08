@@ -20,11 +20,11 @@ int main()
 		f13 = m1 * m3 / r13 / r13;
 	if (f12 <= f23)
 	{
-		if (f12 >= f13)
+		if (f13 <= f12)
 		{
 			std::cout << "f13<=f12<=f23";
 		}
-		else if (f23 >= f13)
+		else if (f13 <= f23)
 		{
 			std::cout << "f12<f13<=f23";
 		}
@@ -35,13 +35,13 @@ int main()
 	}
 	else
 	{
-		if (f23 >= f13)
+		if (f13 <= f23)
 		{
 			std::cout << "f13<=f23<f12";
 		}
-		else if (f12 >= f13)
+		else if (f13 <= f12)
 		{
-			std::cout << "f12<f13<=f12";
+			std::cout << "f23<f13<=f12";
 		}
 		else
 		{
