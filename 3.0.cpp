@@ -31,7 +31,7 @@ int main()
     else if (n1 + 1 || n2 + 1)
     {
         std::cout << "Found only one positive value\n";
-        std::cout << (n1 ? n1 : n2);
+        std::cout << (n1 + 1 ? n1 : n2);
     }
     else 
     {
