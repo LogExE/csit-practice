@@ -9,6 +9,7 @@ int main()
 		std::cout << "invalid data";
 		return 0;
 	}
+	// s = pi * r ^ 2 => r = sqrt(s / pi), d = 2 * r
 	double d = 2 * sqrt(s / acos(-1));
 	double a = p / 4;
 	double e = 1e-12;
@@ -16,7 +17,7 @@ int main()
 	{
 		std::cout << "d = a";
 	}
-	else if (d > a && d > a + e) 
+	else if (d > a + e) 
 	{
 		std::cout << "d > a";
 	}
