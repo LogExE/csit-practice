@@ -22,4 +22,5 @@ int main()
 	{
 		std::cout << a[i] << ' ';
 	}
+	delete[] a, b;
 }
