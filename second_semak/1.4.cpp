@@ -1,4 +1,6 @@
 
+#define square(x) ((x)*(x))
+
 class point2d 
 {
 public:
@@ -27,7 +29,7 @@ double dist(point2d p)
 
 double dist(point2d p1, point2d p2)
 {
-	return abs(dist(p1) - dist(p2));
+	return dist(p1.x, p1.y, p2.x, p2.y);
 }
 
 double dist(point3d p)
@@ -37,45 +39,45 @@ double dist(point3d p)
 
 double dist(point3d p1, point3d p2)
 {
-	return abs(dist(p1) - dist(p2));
+	return dist(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
 }
 
 double dist(int x, int y)
 {
-	return sqrt(x * x + y * y);
+	return dist(x, y, 0);
 }
 
 double dist(int x, int y, int z) 
 {
-	return sqrt(x * x + y * y + z * z);
+	return dist(x, y, z, 0, 0, 0);
 }
 
 double dist(int x1, int y1, int x2, int y2)
 {
-	return abs(dist(x1, y1) - dist(x2, y2));
+	return dist(x1, y1, 0, x2, y2, 0);
 }
 
 double dist(int x1, int y1, int z1, int x2, int y2, int z2)
 {
-	return abs(dist(x1, y1, z1) - dist(x2, y2, z2));
+	return sqrt(square(x1 - x2) + square(y1 - y2) + square(z1 - z2));
 }
 
 double dist(double x, double y)
 {
-	return sqrt(x * x + y * y);
+	return dist(x, y, 0.0);
 }
 
 double dist(double x1, double y1, double x2, double y2)
 {
-	return abs(dist(x1, y1) - dist(x2, y2));
-}
-
-double dist(double x1, double y1, double z1, double x2, double y2, double z2)
-{
-	return abs(dist(x1, y1, z1) - dist(x2, y2, z2));
+	return dist(x1, y1, 0.0, x2, y2, 0.0);
 }
 
 double dist(double x, double y, double z)
 {
-	return sqrt(x * x + y * y + z * z);
+	return dist(x, y, z, 0, 0, 0);
+}
+
+double dist(double x1, double y1, double z1, double x2, double y2, double z2)
+{
+	return sqrt(square(x1 - x2) + square(y1 - y2) + square(z1 - z2));
 }
