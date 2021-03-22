@@ -62,10 +62,8 @@ public:
     }
     rectangle operator++(int)
     {
-        rectangle ret(width, height);
-        ret.set_name(name);
-        ++width;
-        ++height;
+        rectangle ret = *this;
+        ++*this;
         return ret;
     }
 };
