@@ -63,6 +63,7 @@ public:
     rectangle operator++(int)
     {
         rectangle ret(width, height);
+        ret.set_name(name);
         ++width;
         ++height;
         return ret;
@@ -75,5 +76,8 @@ int main()
     rectangle r(10, 10);
     r.set_name("test rect");
     std::cout << r.get_height() << ' ' << r.get_width() << ' ' << r.get_name() << ' ' << r.perimeter() << '\n';
-    std::cout << r.to_string();
+    std::cout << r.to_string() << '\n';
+    std::cout << (++r).to_string() << '\n';
+    std::cout << r++.to_string() << '\n';
+    std::cout << r.to_string() << '\n';
 }
