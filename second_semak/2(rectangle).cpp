@@ -50,9 +50,9 @@ public:
         ret += name;
         return ret;
     }
-    bool operator==(rectangle other) const
+    bool operator==(const rectangle &other) const
     {
-        return width == other.width && height == other.height;
+        return width == other.width && height == other.height && name == other.name;
     }
     rectangle& operator++()
     {
@@ -78,4 +78,8 @@ int main()
     std::cout << (++r).to_string() << '\n';
     std::cout << r++.to_string() << '\n';
     std::cout << r.to_string() << '\n';
+    rectangle rr(11, 11);
+    rr.set_name(r.get_name());
+    std::cout << (rr == r) << '\n';
+    std::cout << (++rr == r);
 }
