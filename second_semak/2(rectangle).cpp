@@ -63,7 +63,13 @@ public:
     }
 };
 
-int main()
+rectangle intersect(double x1, double y1, rectangle r1, double x2, double y2, rectangle r2)
 {
-
+    double lx = std::max(x1, x2),
+           rx = std::min(x1 + r1.get_width(), x2 + r2.get_width()),
+           uy = std::max(y1, y2),
+           dy = std::min(y1 + r1.get_height(), y2 + r2.get_height());
+    if (lx >= rx || uy >= dy)
+        return rectangle(0, "");
+    return rectangle(rx - lx, dy - uy, "");
 }
