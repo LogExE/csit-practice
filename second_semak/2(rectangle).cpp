@@ -1,6 +1,6 @@
 
-#include <iostream>
 #include <string>
+#include <sstream>
 
 class rectangle
 {
@@ -8,9 +8,9 @@ class rectangle
     std::string name;
 public:
     //аргумент для инициализации name?
-    rectangle(int a) : width(a), height(a)
+    rectangle(int a): width(a), height(a)
     {}
-    rectangle(int w, int h) : width(w), height(h)
+    rectangle(int w, int h): width(w), height(h)
     {}
     int get_width() const
     {
@@ -42,13 +42,9 @@ public:
     }
     std::string to_string() const
     {
-        std::string ret = "rectangle, w: ";
-        ret += std::to_string(width);
-        ret += ", h: ";
-        ret += std::to_string(height);
-        ret += ", name: ";
-        ret += name;
-        return ret;
+        std::ostringstream ss;
+        ss << "rectangle, w: " << width << ", h: " << height << ", name: " << name;
+        return ss.str();
     }
     bool operator==(const rectangle &other) const
     {
@@ -67,19 +63,3 @@ public:
         return ret;
     }
 };
-
-int main()
-{
-    //demo
-    rectangle r(10, 10);
-    r.set_name("test rect");
-    std::cout << r.get_height() << ' ' << r.get_width() << ' ' << r.get_name() << ' ' << r.perimeter() << '\n';
-    std::cout << r.to_string() << '\n';
-    std::cout << (++r).to_string() << '\n';
-    std::cout << r++.to_string() << '\n';
-    std::cout << r.to_string() << '\n';
-    rectangle rr(11, 11);
-    rr.set_name(r.get_name());
-    std::cout << (rr == r) << '\n';
-    std::cout << (++rr == r);
-}
