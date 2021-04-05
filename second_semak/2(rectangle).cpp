@@ -4,27 +4,26 @@
 
 class rectangle
 {
-    int width, height;
+    double width, height;
     std::string name;
 public:
-    //аргумент для инициализации name?
-    rectangle(int a): width(a), height(a)
+    rectangle(double a, std::string n): width(a), height(a), name(n)
     {}
-    rectangle(int w, int h): width(w), height(h)
+    rectangle(double w, double h, std::string n): width(w), height(h), name(n)
     {}
-    int get_width() const
+    double get_width() const
     {
         return width;
     }
-    void set_width(int nwidth)
+    void set_width(double nwidth)
     {
         width = nwidth;
     }
-    int get_height() const
+    double get_height() const
     {
         return height;
     }
-    void set_height(int nheight)
+    void set_height(double nheight)
     {
         height = nheight;
     }
@@ -36,7 +35,7 @@ public:
     {
         name = nname;
     }
-    int perimeter() const
+    double perimeter() const
     {
         return 2 * (width + height);
     }
@@ -63,3 +62,8 @@ public:
         return ret;
     }
 };
+
+int main()
+{
+
+}
