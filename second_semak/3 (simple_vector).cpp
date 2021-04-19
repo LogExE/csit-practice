@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 template <typename T>
@@ -7,9 +8,12 @@ private:
     T *ptr;
     unsigned cursize;
     unsigned capacity;
+
 public:
     const static unsigned npos = -1;
-    simple_vector(unsigned n, T val): ptr(new T[2 * n]), capacity(2 * n), cursize(n)
+    simple_vector(unsigned n, const T &val) : ptr(new T[2 * n]),
+                                              capacity(2 * n),
+                                              cursize(n)
     {
         for (unsigned i = 0; i < n; ++i)
             ptr[i] = val;
@@ -19,7 +23,7 @@ public:
         delete[] ptr;
         ptr = nullptr;
     }
-    T& operator[](unsigned idx)
+    T &operator[](unsigned idx)
     {
         if (idx >= cursize)
             throw std::runtime_error("simple_vector[] at wrong index");
@@ -53,10 +57,22 @@ public:
             ptr[i] = ptr[i + 1];
         resize(cursize - 1);
     }
-    void append(const T &val)
+    void remove_first(const T &val)
+    {
+        unsigned idx = find(val);
+        if (idx != npos)
+            remove(idx);
+    }
+    void insert_after(unsigned idx, const T &val)
     {
         resize(cursize + 1);
-        ptr[cursize - 1] = val;
+        for (unsigned i = cursize - 1; i > idx; --i)
+            ptr[i] = ptr[i - 1];
+        ptr[idx + 1] = val;
+    }
+    void append(const T &val)
+    {
+        insert_after(cursize, val);
     }
     unsigned size() const
     {
@@ -74,7 +90,12 @@ int main()
     for (int i = 0; i < v.size(); ++i)
         std::cout << v[i] << ' ';
     v[1] = 42;
-    std::cout << '\n' << v.find(42) << '\n';
+    v[2] = 43;
+    v[5] = 42;
+    std::cout << '\n'
+              << v.find(42) << '\n';
+    v.remove_first(42);
+    v.insert_after(0, 5444);
     for (int i = 0; i < v.size(); ++i)
         std::cout << v[i] << ' ';
 }
