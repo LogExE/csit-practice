@@ -16,7 +16,6 @@ int main()
         if (i == 0 || x < m)
             m = x;
     }
-    int c = 0;
     auto itt = l.end();
     for (auto it = l.begin(); it != l.end(); ++it)
         if (*it == m)
