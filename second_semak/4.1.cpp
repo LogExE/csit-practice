@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <list>
 
+// complexity - O(n)
+
 int main()
 {
     int n;
@@ -15,7 +17,7 @@ int main()
         l.push_back(x);
         if (i == 0 || x < m)
             m = x;
-    }
+    } // for - O(n)
     auto itt = l.end();
     for (auto it = l.begin(); it != l.end(); ++it)
         if (*it == m)
@@ -23,6 +25,7 @@ int main()
             itt = it;
             break;
         }
+    //for - O(n)
     l.insert(itt, 0);
     l.insert(std::next(itt), 0);
     for (auto it = l.begin(); it != l.end(); ++it)
